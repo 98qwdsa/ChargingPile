@@ -8992,4 +8992,30 @@ a.button {
 
 
 .content {
-  padding: 1rem; }
+  background: #ccc; }
+
+.imgs {
+  margin-top: 0;
+  height: 200px;
+  background: #abcdef; }
+
+.img-nav {
+  height: 100px;
+  background: #fff; }
+  .img-nav li {
+    width: 20%;
+    float: left;
+    height: 100%;
+    text-align: center; }
+    .img-nav li img {
+      margin: 10px auto 6px;
+      display: block;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #abcdef; }
+
+
+.me-login {
+  margin: 0 auto;
+  width: 80px; }
