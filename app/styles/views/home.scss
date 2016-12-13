@@ -3,5 +3,35 @@
 }
 
 .content {
-  padding: 1rem;
+  background: #ccc;
+}
+.imgs{
+  margin-top: 0;
+  height: 200px;
+  background: #abcdef;
+}
+
+.img-nav{
+  height: 100px;
+  background: #fff;
+  li{
+    width:20%;
+    float: left;
+    height: 100%;
+    text-align: center;
+    img{
+      margin:10px auto 6px;
+      display:block;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #abcdef;
+    };
+  }
+}
+/*about me*/
+
+.me-login{
+  margin: 0 auto;
+  width: 80px;
 }

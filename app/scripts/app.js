@@ -128,13 +128,16 @@ ChargingPile.run(function($ionicPlatform) {
   }));
 
   Mock.mock('/loginOut', opt => ({
-    "errorCode": Mock.mock('@natural(-3, 0)')
+    "errorCode": Mock.mock('@natural(-3, 0)') 
   }));
   
 
 })
 
-.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
+.config(function($httpProvider, $stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.tabs.style('standard'); // Tab风格
+  $ionicConfigProvider.tabs.position('bottom'); // Tab位置
+  $ionicConfigProvider.navBar.alignTitle('center'); // 标题位置
   // register $http interceptors, if any. e.g.
   // $httpProvider.interceptors.push('interceptor-name');
 
