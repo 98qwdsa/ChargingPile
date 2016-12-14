@@ -9000,7 +9000,7 @@ a.button {
   background: #abcdef; }
 
 .img-nav {
-  height: 100px;
+  height: 110px;
   background: #fff; }
   .img-nav li {
     width: 20%;
@@ -9019,3 +9019,38 @@ a.button {
 .me-login {
   margin: 0 auto;
   width: 80px; }
+
+
+.chargeHistory div {
+  min-height: 100px; }
+
+.chargeHistory .left {
+  width: 80px;
+  text-align: center; }
+  .chargeHistory .left img {
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+    background: #ccc; }
+
+.chargeHistory .right {
+  margin-left: 90px;
+  font-size: 12px; }
+  .chargeHistory .right ion-item {
+    padding: 6px; }
+
+.flt-l {
+  float: left; }
+
+.flt-r {
+  float: right; }
+
+.clearfloat {
+  zoom: 1; }
+
+.clearfloat:after {
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0; }
