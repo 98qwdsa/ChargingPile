@@ -12,7 +12,7 @@
 }
 
 .img-nav{
-  height: 100px;
+  height: 110px;
   background: #fff;
   li{
     width:20%;
@@ -34,4 +34,46 @@
 .me-login{
   margin: 0 auto;
   width: 80px;
+}
+
+/* chargeHistory */
+
+.chargeHistory{
+  div{
+    min-height: 100px;
+  }
+  .left{
+    width: 80px;
+    text-align: center;
+    img{
+      height: 70px;
+      width: 70px;
+      margin: 5px;
+      background: #ccc;
+    }
+  }
+  .right{
+    margin-left: 90px;
+    font-size: 12px;
+    ion-item{
+      padding: 6px;
+    }
+  }
+}
+
+.flt-l{
+  float:left;
+}
+
+.flt-r{
+  float: right;
+}
+
+.clearfloat{zoom:1} 
+.clearfloat:after{
+    content:"";
+    display:block;
+    clear:both;
+    visibility:hidden;
+    height:0;
 }

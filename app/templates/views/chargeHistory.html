@@ -1,0 +1,43 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-positive">
+    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+        <h1 class="title">ChargingPile</h1>
+    </ion-header-bar>
+    <ion-content>
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+        <ion-list class="chargeHistory">
+          <ion-item ng-repeat-start="i in chargeHistory">
+            <div class="left flt-l">
+              <img src="">
+              <p>{{i.rid}}</p>
+            </div>
+            <div class="right">
+              <ion-list>
+                <ion-item>
+                  订单编号:{{i.orderid}}
+                </ion-item>
+                <ion-item>
+                  订单开始时间:{{i.orderStartTime}}
+                </ion-item>
+                <ion-item>
+                订单状态:{{orderState[i.orderState]}}
+                </ion-item>
+                <ion-item>
+                车牌号码:{{i.licensePlateNumber}}
+                </ion-item>
+                <ion-item>
+                开始时间:{{i.chargeStartTime}}
+                </ion-item>
+                <ion-item>
+                 结束时间:{{i.chargeEndTime}}                
+                </ion-item>
+                <ion-item>
+                总时长:{{i.chargeTime}} / 总花费:{{i.payment}}元
+                </ion-item>
+              </ion-list>
+            </div>
+          </ion-item>
+          <ion-item ng-repeat-end class="item-divider" ng-if="!$last"></ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -50,6 +50,11 @@ angular.module('ChargingPile')
     signout:{
       url:'/loginOut',
       hint:['成功','服务器错误','不存在的用户名','验证码错误']
+    },
+
+    getUserChargeHistory:{
+      url:'/getUserChargeHistory',
+      hint:['申请成功','服务器错误','','其它错误']
     }
 
 
