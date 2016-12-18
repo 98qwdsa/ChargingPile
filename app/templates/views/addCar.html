@@ -1,0 +1,45 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-positive">
+    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+        <h1 class="title">添加车辆</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          号牌类型:
+          <select ng-model="carInfo.carType">
+            <option value="0">小型汽车</option>
+            <option value="1">大型汽车</option>
+          </select>
+        </ion-item>
+        <ion-item class="item-divider"></ion-item>
+        <ion-item class="item-icon-right">
+          车型:
+          <input type="text" placeholder="请选择车型" ng-model="carInfo.carMode">
+          <i class="icon ion-ios-arrow-right"></i>
+        </ion-item>
+        <ion-item class="item-divider"></ion-item>
+        <ion-item class="item-icon-right">
+          车牌号码:
+          <input type="text" ng-model="carInfo.licensePlateNumber">
+          <!-- <i class="icon ion-ios-arrow-right"></i> -->
+        </ion-item>
+        <ion-item class="item-divider"></ion-item>
+        <ion-item class="item-icon-right">
+          发动机号:
+          <input type="text" ng-model="carInfo.engineNumber">
+          <i class="icon ion-ios-help-outline"></i>
+        </ion-item>
+        <ion-item class="item-divider"></ion-item>
+        <ion-item class="item-icon-right">
+          车架号码:
+          <input type="text" ng-model="carInfo.chassisNumber">
+          <i class="icon ion-ios-help-outline"></i>
+        </ion-item>
+        <button class="button button-full button-positive" ng-click="addCar();">确认</button>
+
+      </ion-list>
+    </ion-content>
+
+
+</ion-view>

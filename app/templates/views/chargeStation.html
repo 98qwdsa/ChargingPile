@@ -1,0 +1,45 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-positive">
+    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+    <h1 class="title"><span>电站详情</span>/<span ui-sref="app.searchChargingPile({id:ChargingStationsInfo.rid})">充电终端</span></h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item class="item-thumbnail-left">
+          <img src="cover.jpg">
+          <h2>{{ChargingStationsInfo.operator}}</h2>      
+        </ion-item>
+        <ion-item>
+          <h2><i>慢</i>空闲{{ChargingStationsInfo.spare}}/共{{ChargingStationsInfo.ownChargingPile.fast}}<i>快</i>空闲{{ChargingStationsInfo.spare}}/共{{ChargingStationsInfo.ownChargingPile.slow}}</h2>
+        </ion-item>
+        <ion-item class="item-divider"></ion-item>
+        <ion-item class="item-icon-left item-icon-right">
+          <h2>{{ChargingStationsInfo.addr}}</h2>
+          <p>距您{{ChargingStationsInfo.distance}}km</p>
+          <i class="icon ion-navigate"></i>
+        </ion-item>
+        <ion-item class="item-divider"></ion-item>
+        <ion-item>
+          <span>充电单价</span>
+          {{ChargingStationsInfo.cost.service}}元/度
+        </ion-item>
+        <ion-item>
+          <span>停车费</span>
+          {{ChargingStationsInfo.cost.parking[0].cost}}元/小时
+        </ion-item>
+        <ion-item>
+          <span>运营商</span>
+          {{ChargingStationsInfo.operator}}
+        </ion-item>
+        <ion-item>
+          <span>营业时间</span>
+          {{ChargingStationsInfo.serviceTime}}
+        </ion-item>
+        <ion-item class="item-icon-right">
+          <span>服务电话</span>
+          {{ChargingStationsInfo.servicePhone}}
+        <a class="icon ion-ios-telephone-outline"></a>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+</ion-view>

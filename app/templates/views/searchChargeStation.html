@@ -1,0 +1,30 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-positive">
+    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+        <h1 class="title">充电站</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+      <ion-list class="charge-station-list">
+        <ion-item>
+          <select>
+            <option>深圳</option>
+          </select>
+          <select>
+            <option value="1">1km</option>
+            <option value="5">5km</option>
+            <option value="10">10km</option>
+            <option value="50">50km</option>
+          </select>
+        </ion-item>
+        <ion-item ng-repeat-start="i in chargeStationList" ui-sref="app.chargeStationInfo({id:i.rid})" class="item-thumbnail-left item-icon-right">
+          <img src="cover.jpg">
+          <h2>{{i.operator}}<i class="flt-r slow">慢</i><i class="flt-r fast">快</i></h2>
+          <p>{{i.cost.service}}元/度</p>
+          <p>距您{{i.distance}}km</p>
+          <h2>空闲{{i.spare}}</h2>
+        </ion-item>
+        <ion-item ng-repeat-end class="item-divider"></ion-item>
+      </ion-list>
+    </ion-content>
+</ion-view>

@@ -55,6 +55,31 @@ angular.module('ChargingPile')
     getUserChargeHistory:{
       url:'/getUserChargeHistory',
       hint:['申请成功','服务器错误','','其它错误']
+    },
+
+    getUserRechargeHistory:{
+      url:'/getUserRechargeHistory',
+      hint:['申请成功','服务器错误','','其它错误']
+    },
+
+    getChargingStationsInfo:{
+      url:'/getChargingStationsInfo',
+      hint:['申请成功','服务器错误','','其它错误']
+    },
+
+    getChargingPileInfo:{
+      url:'/getChargingPileInfo',
+      hint:['申请成功','服务器错误','','其它错误']
+    },
+
+    getUserDetailInfo:{
+      url:'/getUserDetailInfo',
+      hint:['申请成功','服务器错误','','其它错误']
+    },
+
+    setUserInfo:{
+      url:'/setUserInfo',
+      hint:['申请成功','服务器错误','','其它错误']
     }
 
 

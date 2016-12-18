@@ -61,6 +61,24 @@
   }
 }
 
+.charge-station-list{
+  i.flt-r{
+    height: 22px;
+    width: 22px;
+    color:#fff;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 25%;
+  }
+  i.fast{
+    background: #ee022b;
+  }
+  i.slow{
+    background: green;
+    margin-left: 4px;
+  }
+}
+
 .flt-l{
   float:left;
 }

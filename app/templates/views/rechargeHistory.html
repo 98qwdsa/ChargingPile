@@ -1,41 +1,32 @@
 <ion-view>
     <ion-header-bar align-title="center" class="bar-positive">
     <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
-        <h1 class="title">充电记录</h1>
+        <h1 class="title">充值记录</h1>
     </ion-header-bar>
     <ion-content>
         <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
         <ion-list class="chargeHistory">
-          <ion-item ng-repeat-start="i in chargeHistory">
-            <div class="left flt-l">
-              <img src="">
-              <p>{{i.rid}}</p>
-            </div>
-            <div class="right">
+          <ion-item ng-repeat-start="i in reChargeHistory">
               <ion-list>
                 <ion-item>
-                  订单编号:{{i.orderid}}
+                  充值订单号:{{i.orderid}}
                 </ion-item>
                 <ion-item>
-                  订单开始时间:{{i.orderStartTime}}
+                  充值订单状态:{{orderidState[i.orderidState]}}
                 </ion-item>
                 <ion-item>
-                订单状态:{{orderState[i.orderState]}}
+                  充值金额:{{i.rechargeMoney}}
                 </ion-item>
                 <ion-item>
-                车牌号码:{{i.licensePlateNumber}}
+                  第三方充值平台的订单号:{{i.thirdPartyOrderID}}
                 </ion-item>
                 <ion-item>
-                开始时间:{{i.chargeStartTime}}
+                 充值申请时间:{{i.rechargeStartTime}}                
                 </ion-item>
                 <ion-item>
-                 结束时间:{{i.chargeEndTime}}                
-                </ion-item>
-                <ion-item>
-                总时长:{{i.chargeTime}} / 总花费:{{i.payment}}元
+                  充值到账时间:{{i.rechargeArriveTime}}
                 </ion-item>
               </ion-list>
-            </div>
           </ion-item>
           <ion-item ng-repeat-end class="item-divider" ng-if="!$last"></ion-item>
         </ion-list>

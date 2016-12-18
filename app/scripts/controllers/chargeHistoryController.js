@@ -10,7 +10,7 @@ angular.module('ChargingPile')
   .controller('ChargeHistoryController', function($scope, $state, $http, $ionicPopup, API_ENDPOINT, FN) {
 
     const getUserChargeHistoryParam = {
-      userid: ''
+      userid: 13420989008
     }
 
     $scope.orderState = ['用户已经预约电桩等待用户充电','充电进行中','充电中断等待恢复','正常完成充电，交易结算']
@@ -27,7 +27,6 @@ angular.module('ChargingPile')
             $scope.chargeHistory = data.data.return;
           }
           $scope.$broadcast('scroll.refreshComplete');
-          console.log($scope.chargeHistory);
         } else {
           var alertPopup = $ionicPopup.alert({
             //title: CALLBACKTANS.registerRequestCaptcha[code],

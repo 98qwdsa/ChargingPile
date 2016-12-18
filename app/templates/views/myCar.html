@@ -1,0 +1,23 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-positive">
+    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+        <h1 class="title">我的爱车</h1>
+    </ion-header-bar>
+
+      <ion-content>
+        <ion-list>
+          <ion-item ng-repeat-start="i in myCarList">
+            <h2><span>VIN</span>{{i.VIN}}</h2>
+            <h2><span>licensePlateNumber</span>{{i.licensePlateNumber}}</h2>
+            <h2><span>carType</span>{{i.carType}}</h2>
+            <h2><span>carMode</span>{{i.carMode}}</h2>
+            <h2><span>chassisNumber</span>{{i.chassisNumber}}</h2>
+            <h2><span>engineNumber</span>{{i.engineNumber}}</h2>
+          </ion-item>
+          <ion-item ng-repeat-end class="item-divider"></ion-item>
+          <button class="button button-full button-positive" ui-sref="app.addCar">添加新车</button>
+        </ion-list>
+      </ion-content>
+
+
+</ion-view>
