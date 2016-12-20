@@ -321,6 +321,22 @@ ChargingPile.run(function($ionicPlatform) {
 
   // Application routing
   $stateProvider
+    .state('signin', {
+      url: '/signin',
+      cache: true,
+      templateUrl: 'templates/views/signin.html',
+      controller: 'SigninController'
+    }).state('regist', {
+      url: '/regist',
+      cache: true,
+      templateUrl: 'templates/views/regist.html',
+      controller: 'RegistController'
+    }).state('reset', {
+      url: '/reset',
+      cache: true,
+      templateUrl: 'templates/views/reset.html',
+      controller: 'ResetKeyController'
+    })
     .state('app', {
       url: '/app',
       abstract: true,
@@ -331,62 +347,16 @@ ChargingPile.run(function($ionicPlatform) {
       url: '/home',
       cache: true,
       views: {
-        'viewContent': {
+        'home': {
           templateUrl: 'templates/views/home.html',
           controller: 'HomeController'
-        }
-      }
-    })
-    .state('app.signin', {
-      url: '/signin',
-      cache: true,
-      views: {
-        'viewContent': {
-          templateUrl: 'templates/views/signin.html',
-          controller: 'SigninController'
-        }
-      }
-    }).state('app.regist', {
-      url: '/regist',
-      cache: true,
-      views: {
-        'viewContent': {
-          templateUrl: 'templates/views/regist.html',
-          controller: 'RegistController'
-        }
-      }
-    }).state('app.reset', {
-      url: '/reset',
-      cache: true,
-      views: {
-        'viewContent': {
-          templateUrl: 'templates/views/reset.html',
-          controller: 'ResetKeyController'
-        }
-      }
-    }).state('app.chargeHistory', {
-      url: '/chargeHistory',
-      cache: true,
-      views: {
-        'viewContent': {
-          templateUrl: 'templates/views/chargeHistory.html',
-          controller: 'ChargeHistoryController'
-        }
-      }
-    }).state('app.reChargeHistory', {
-      url: '/rechargeHistory',
-      cache: true,
-      views: {
-        'viewContent': {
-          templateUrl: 'templates/views/rechargeHistory.html',
-          controller: 'RechargeHistoryController'
         }
       }
     }).state('app.searchChargeStation', {
       url: '/searchChargeStation',
       cache: true,
       views: {
-        'viewContent': {
+        'home': {
           templateUrl: 'templates/views/searchChargeStation.html',
           controller: 'SearchChargeStationController'
         }
@@ -395,7 +365,7 @@ ChargingPile.run(function($ionicPlatform) {
       url: '/chargeStationInfo/:id',
       cache: true,
       views: {
-        'viewContent': {
+        'home': {
           templateUrl: 'templates/views/chargeStation.html',
           controller: 'ChargeStationController'
         }
@@ -404,16 +374,34 @@ ChargingPile.run(function($ionicPlatform) {
       url: '/searchChargingPile/:id',
       cache: true,
       views: {
-        'viewContent': {
+        'home': {
           templateUrl: 'templates/views/searchChargingPile.html',
           controller: 'SearchChargingPileController'
+        }
+      }
+    }).state('app.me', {
+      url: '/me',
+      cache: true,
+      views: {
+        'me': {
+          templateUrl: 'templates/views/me.html',
+          //controller: 'HomeController'
+        }
+      }
+    }).state('app.reChargeHistory', {
+      url: '/rechargeHistory',
+      cache: true,
+      views: {
+        'me': {
+          templateUrl: 'templates/views/rechargeHistory.html',
+          controller: 'RechargeHistoryController'
         }
       }
     }).state('app.myCar', {
       url: '/myCar',
       cache: true,
       views: {
-        'viewContent': {
+        'me': {
           templateUrl: 'templates/views/myCar.html',
           controller: 'MyCarPileController'
         }
@@ -422,9 +410,18 @@ ChargingPile.run(function($ionicPlatform) {
       url: '/addCar',
       cache: true,
       views: {
-        'viewContent': {
+        'me': {
           templateUrl: 'templates/views/addCar.html',
           controller: 'AddCarController'
+        }
+      }
+    }).state('app.chargeHistory', {
+      url: '/chargeHistory',
+      cache: true,
+      views: {
+        'me': {
+          templateUrl: 'templates/views/chargeHistory.html',
+          controller: 'ChargeHistoryController'
         }
       }
     }).state('app.settings', {
@@ -440,5 +437,5 @@ ChargingPile.run(function($ionicPlatform) {
 
 
   // redirects to default route for undefined routes
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('/signin');
 });
