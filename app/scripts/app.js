@@ -79,6 +79,7 @@ var ChargingPile = angular.module('ChargingPile', ['ionic', 'ngCordova', 'ngReso
 Mock.mockjax(ChargingPile);
 
 ChargingPile.run(function($ionicPlatform) {
+  window.BMap_loadScriptTime = (new Date).getTime();
 
   $ionicPlatform.ready(function() {
     // save to use plugins here
@@ -126,7 +127,7 @@ ChargingPile.run(function($ionicPlatform) {
   }));
 
   Mock.mock('/login', opt => ({
-    errorCode: Mock.mock('@natural(-3, 0)')
+    errorCode: 0//Mock.mock('@natural(-3, 0)')
   }));
 
   Mock.mock('/loginOut', opt => ({
