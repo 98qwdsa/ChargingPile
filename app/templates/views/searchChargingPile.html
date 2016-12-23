@@ -1,8 +1,8 @@
 <ion-view>
-    <ion-header-bar align-title="center" class="bar-positive">
-    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
-    <h1 class="title"><span ui-sref="app.chargeStationInfo({id:chargeingStationId})">电站详情</span>/<span>充电终端</span></h1>
-    </ion-header-bar>
+    <ion-nav-title side="center">
+      <span ui-sref="app.chargeStationInfo({id:chargeingStationId})">电站详情</span>/<span>充电终端</span>
+    </ion-nav-title>
+
     <ion-content>
       <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
       <ion-list>

@@ -74,7 +74,7 @@ Mock.mockjax = function(module) {
  */
 
 
-var ChargingPile = angular.module('ChargingPile', ['ionic', 'ngCordova', 'ngResource']);
+var ChargingPile = angular.module('ChargingPile', ['ionic', 'ngCordova', 'ngResource','oc.lazyLoad']);
 
 Mock.mockjax(ChargingPile);
 
@@ -379,6 +379,15 @@ ChargingPile.run(function($ionicPlatform) {
           controller: 'SearchChargingPileController'
         }
       }
+    }).state('app.navigation', {
+      url: '/navigation',
+      cache: true,
+      views: {
+        'home': {
+          templateUrl: 'templates/views/navigation.html',
+          controller: 'NavigationController'
+        }
+      }
     }).state('app.me', {
       url: '/me',
       cache: true,
@@ -437,5 +446,5 @@ ChargingPile.run(function($ionicPlatform) {
 
 
   // redirects to default route for undefined routes
-  $urlRouterProvider.otherwise('/signin');
+  $urlRouterProvider.otherwise('/app/home');
 });

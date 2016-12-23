@@ -1,4 +1,7 @@
-<ion-view view-title="<span>电站详情</span>/<span ui-sref='app.searchChargingPile({id:ChargingStationsInfo.rid})'>充电终端</span>">
+<ion-view>
+  <ion-nav-title side="center">
+    <span>电站详情</span>/<span ui-sref='app.searchChargingPile({id:ChargingStationsInfo.rid})'>充电终端</span>
+  </ion-nav-title>
     <ion-content>
       <ion-list>
         <ion-item class="item-thumbnail-left">
@@ -12,7 +15,7 @@
         <ion-item class="item-icon-left item-icon-right">
           <h2>{{ChargingStationsInfo.addr}}</h2>
           <p>距您{{ChargingStationsInfo.distance}}km</p>
-          <i class="icon ion-navigate"></i>
+          <i class="icon ion-navigate" ui-sref="app.navigation"></i>
         </ion-item>
         <ion-item class="item-divider"></ion-item>
         <ion-item>
