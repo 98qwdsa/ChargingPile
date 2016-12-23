@@ -446,5 +446,5 @@ ChargingPile.run(function($ionicPlatform) {
 
 
   // redirects to default route for undefined routes
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('/signin');
 });
