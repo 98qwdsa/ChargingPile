@@ -448,117 +448,6 @@ ChargingPile.run(["$ionicPlatform", function ($ionicPlatform) {
 'use strict';
 
 /**
- * @ngdoc constant
- * @name ChargingPile.API_ENDPOINT
- * @description
- * # API_ENDPOINT
- * Defines the API endpoint where our resources will make requests against.
- * Is used inside /services/ApiService.js to generate correct endpoint dynamically
- */
-
-angular.module('ChargingPile')
-
-// development
-.constant('API_ENDPOINT', {
-  host: 'http://localhost',
-  postData: {
-    apikey: '',
-    datas: {}
-  },
-
-  registerRequestCaptcha: {
-    url: '/registerRequestCaptcha',
-    hint: ['注册成功', '用户已经存在,注册请求失败.', '手机号码无效,注册请求失败.', '其它错误']
-  },
-  register: {
-    url: '/register',
-    hint: ['注册成功', '用户已经存在,注册请求失败.', '手机号码无效,注册请求失败.', '其它错误']
-  },
-
-  resetKeyRequestCaptcha: {
-    url: '/resetKeyRequestCaptcha',
-    hint: ['申请成功', '服务器错误.', '', '其它错误']
-  },
-  resetKey: {
-    url: '/resetKey',
-    hint: ['修改密码成功', '验证码无效,注册失败.', '', '其它错误']
-  },
-
-  loginRequesCaptcha: {
-    url: '/loginRequesCaptcha',
-    hint: ['成功', '服务器错误', '', '', '不存在的用户名', '其它错误']
-  },
-  login: {
-    url: '/login',
-    hint: ['登陆成功', '服务器错误', '密码错误', '验证码错误']
-  },
-
-  signout: {
-    url: '/loginOut',
-    hint: ['成功', '服务器错误', '不存在的用户名', '验证码错误']
-  },
-
-  getUserChargeHistory: {
-    url: '/getUserChargeHistory',
-    hint: ['申请成功', '服务器错误', '', '其它错误']
-  },
-
-  getUserRechargeHistory: {
-    url: '/getUserRechargeHistory',
-    hint: ['申请成功', '服务器错误', '', '其它错误']
-  },
-
-  getChargingStationsInfo: {
-    url: '/getChargingStationsInfo',
-    hint: ['申请成功', '服务器错误', '', '其它错误']
-  },
-
-  getChargingPileInfo: {
-    url: '/getChargingPileInfo',
-    hint: ['申请成功', '服务器错误', '', '其它错误']
-  },
-
-  getUserDetailInfo: {
-    url: '/getUserDetailInfo',
-    hint: ['申请成功', '服务器错误', '', '其它错误']
-  },
-
-  setUserInfo: {
-    url: '/setUserInfo',
-    hint: ['申请成功', '服务器错误', '', '其它错误']
-  }
-
-});
-
-// live example with HTTP Basic Auth
-/*
-.constant('API_ENDPOINT', {
-  host: 'http://yourserver.com',
-  path: '/api/v2',
-  needsAuth: true,
-  username: 'whatever',
-  password: 'foobar'
-});
-*/
-
-'use strict';
-
-/**
- * @ngdoc function
- * @name ChargingPile.util:lodash
- * @description
- * # Lo-Dash
- * Expose Lo-Dash through injectable factory, so we don't pollute / rely on global namespace
- * just inject lodash as _
- */
-
-angular.module('ChargingPile').factory('_', ["$window", function ($window) {
-  return $window._;
-}]);
-
-'use strict';
-
-/**
  * @ngdoc function
  * @name ChargingPile.controller:HomeController
  * @description
@@ -1153,6 +1042,21 @@ angular.module('ChargingPile').controller('SigninController', ["$scope", "$state
 'use strict';
 
 /**
+ * @ngdoc function
+ * @name ChargingPile.util:lodash
+ * @description
+ * # Lo-Dash
+ * Expose Lo-Dash through injectable factory, so we don't pollute / rely on global namespace
+ * just inject lodash as _
+ */
+
+angular.module('ChargingPile').factory('_', ["$window", function ($window) {
+  return $window._;
+}]);
+
+'use strict';
+
+/**
  * @ngdoc service
  * @name ChargingPile.ApiService
  * @description
@@ -1253,6 +1157,102 @@ angular.module('ChargingPile').factory('FN', function () {
     getQueryParam: getQueryParam
   };
 });
+'use strict';
+
+/**
+ * @ngdoc constant
+ * @name ChargingPile.API_ENDPOINT
+ * @description
+ * # API_ENDPOINT
+ * Defines the API endpoint where our resources will make requests against.
+ * Is used inside /services/ApiService.js to generate correct endpoint dynamically
+ */
+
+angular.module('ChargingPile')
+
+// development
+.constant('API_ENDPOINT', {
+  host: 'http://localhost',
+  postData: {
+    apikey: '',
+    datas: {}
+  },
+
+  registerRequestCaptcha: {
+    url: '/registerRequestCaptcha',
+    hint: ['注册成功', '用户已经存在,注册请求失败.', '手机号码无效,注册请求失败.', '其它错误']
+  },
+  register: {
+    url: '/register',
+    hint: ['注册成功', '用户已经存在,注册请求失败.', '手机号码无效,注册请求失败.', '其它错误']
+  },
+
+  resetKeyRequestCaptcha: {
+    url: '/resetKeyRequestCaptcha',
+    hint: ['申请成功', '服务器错误.', '', '其它错误']
+  },
+  resetKey: {
+    url: '/resetKey',
+    hint: ['修改密码成功', '验证码无效,注册失败.', '', '其它错误']
+  },
+
+  loginRequesCaptcha: {
+    url: '/loginRequesCaptcha',
+    hint: ['成功', '服务器错误', '', '', '不存在的用户名', '其它错误']
+  },
+  login: {
+    url: '/login',
+    hint: ['登陆成功', '服务器错误', '密码错误', '验证码错误']
+  },
+
+  signout: {
+    url: '/loginOut',
+    hint: ['成功', '服务器错误', '不存在的用户名', '验证码错误']
+  },
+
+  getUserChargeHistory: {
+    url: '/getUserChargeHistory',
+    hint: ['申请成功', '服务器错误', '', '其它错误']
+  },
+
+  getUserRechargeHistory: {
+    url: '/getUserRechargeHistory',
+    hint: ['申请成功', '服务器错误', '', '其它错误']
+  },
+
+  getChargingStationsInfo: {
+    url: '/getChargingStationsInfo',
+    hint: ['申请成功', '服务器错误', '', '其它错误']
+  },
+
+  getChargingPileInfo: {
+    url: '/getChargingPileInfo',
+    hint: ['申请成功', '服务器错误', '', '其它错误']
+  },
+
+  getUserDetailInfo: {
+    url: '/getUserDetailInfo',
+    hint: ['申请成功', '服务器错误', '', '其它错误']
+  },
+
+  setUserInfo: {
+    url: '/setUserInfo',
+    hint: ['申请成功', '服务器错误', '', '其它错误']
+  }
+
+});
+
+// live example with HTTP Basic Auth
+/*
+.constant('API_ENDPOINT', {
+  host: 'http://yourserver.com',
+  path: '/api/v2',
+  needsAuth: true,
+  username: 'whatever',
+  password: 'foobar'
+});
+*/
+
 angular.module("ChargingPile").run(["$templateCache", function ($templateCache) {
   $templateCache.put("templates/main.html", "  <ion-tabs class=\"tabs-positive tabs-icon-top\">\r\n    <ion-tab title=\"首页\" icon-on=\"ion-ios-home\" icon-off=\"ion-ios-home-outline\" ui-sref=\"app.home\"><!--ng-click=\"tabRefresh(0)\"   ui-sref=\"tab.discovery\"-->\r\n      <ion-nav-view name=\"home\"></ion-nav-view>\r\n    </ion-tab>\r\n    <!-- Chats Tab -->\r\n    <ion-tab title=\"我\" icon-on=\"ion-ios-person\" icon-off=\"ion-ios-person-outline\" ui-sref=\"app.me\">\r\n      <ion-nav-view name=\"me\"></ion-nav-view>\r\n    </ion-tab>\r\n  </ion-tabs>");
   $templateCache.put("templates/views/addCar.html", "<ion-view view-title=\"添加车辆\">\r\n    <ion-content>\r\n      <ion-list>\r\n        <ion-item>\r\n          号牌类型:\r\n          <select ng-model=\"carInfo.carType\">\r\n            <option value=\"0\">小型汽车</option>\r\n            <option value=\"1\">大型汽车</option>\r\n          </select>\r\n        </ion-item>\r\n        <ion-item class=\"item-divider\"></ion-item>\r\n        <ion-item class=\"item-icon-right\">\r\n          车型:\r\n          <input type=\"text\" placeholder=\"请选择车型\" ng-model=\"carInfo.carMode\">\r\n          <i class=\"icon ion-ios-arrow-right\"></i>\r\n        </ion-item>\r\n        <ion-item class=\"item-divider\"></ion-item>\r\n        <ion-item class=\"item-icon-right\">\r\n          车牌号码:\r\n          <input type=\"text\" ng-model=\"carInfo.licensePlateNumber\">\r\n          <!-- <i class=\"icon ion-ios-arrow-right\"></i> -->\r\n        </ion-item>\r\n        <ion-item class=\"item-divider\"></ion-item>\r\n        <ion-item class=\"item-icon-right\">\r\n          发动机号:\r\n          <input type=\"text\" ng-model=\"carInfo.engineNumber\">\r\n          <i class=\"icon ion-ios-help-outline\"></i>\r\n        </ion-item>\r\n        <ion-item class=\"item-divider\"></ion-item>\r\n        <ion-item class=\"item-icon-right\">\r\n          车架号码:\r\n          <input type=\"text\" ng-model=\"carInfo.chassisNumber\">\r\n          <i class=\"icon ion-ios-help-outline\"></i>\r\n        </ion-item>\r\n        <button class=\"button button-full button-positive\" ng-click=\"addCar();\">确认</button>\r\n\r\n      </ion-list>\r\n    </ion-content>\r\n\r\n\r\n</ion-view>\r\n");
