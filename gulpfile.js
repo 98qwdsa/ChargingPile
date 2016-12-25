@@ -126,13 +126,15 @@ gulp.task('scripts', function() {
       htmlmin: build && minifyConfig
     }));
 
+
+
   var scriptStream = gulp
-    .src(['templates.js', 'app.js', '**/*.js'], {
+    .src(['templates.js', 'app.js', '**/*.js','!**/baiduMap.js'], {
       cwd: 'app/scripts'
     })
 
   .pipe(plugins.if(!build, plugins.changed(dest)));
-
+  
   return streamqueue({
       objectMode: true
     }, scriptStream, templateStream)
@@ -142,10 +144,13 @@ gulp.task('scripts', function() {
     .pipe(plugins.if(build, plugins.babel({
       presets: ['es2015']
     })))
+  .pipe(gulp.dest(dest));
+
+  gulp.src(['/baiduMap.js','app.js'],{
+      cwd: 'app/scripts'
+    })
     .pipe(plugins.if(build, plugins.uglify()))
     .pipe(plugins.if(build && !emulate, plugins.rev()))
-
-  .pipe(gulp.dest(dest))
 
   .on('error', errorHandler);
 });
@@ -191,7 +196,7 @@ gulp.task('images', function() {
 // lint js sources based on .jshintrc ruleset
 gulp.task('jsHint', function(done) {
   return gulp
-    .src('app/scripts/**/*.js')
+    .src(['app/scripts/**/*.js'])
     .pipe(plugins.jshint())
     .pipe(plugins.jshint.reporter(stylish))
 
