@@ -146,7 +146,7 @@ gulp.task('scripts', function() {
     })))
   .pipe(gulp.dest(dest));
 
-  gulp.src(['/baiduMap.js','app.js'],{
+  gulp.src(['/utils/baiduMap.js','app.js'],{
       cwd: 'app/scripts'
     })
     .pipe(plugins.if(build, plugins.uglify()))
