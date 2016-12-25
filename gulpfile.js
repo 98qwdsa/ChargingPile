@@ -104,7 +104,7 @@ gulp.task('styles', function() {
 
 // build templatecache, copy scripts.
 // if build: concat, minsafe, uglify and versionize
-gulp.task('scripts', function() {
+gulp.task('scriptsBefor', function() {
   var dest = path.join(targetDir, 'scripts');
 
   var minifyConfig = {
@@ -129,12 +129,12 @@ gulp.task('scripts', function() {
 
 
   var scriptStream = gulp
-    .src(['templates.js', 'app.js', '**/*.js','!**/baiduMap.js'], {
+    .src(['templates.js', 'app.js', '**/*.js', '!**/baiduMap.js'], {
       cwd: 'app/scripts'
     })
 
   .pipe(plugins.if(!build, plugins.changed(dest)));
-  
+
   return streamqueue({
       objectMode: true
     }, scriptStream, templateStream)
@@ -144,16 +144,25 @@ gulp.task('scripts', function() {
     .pipe(plugins.if(build, plugins.babel({
       presets: ['es2015']
     })))
-  .pipe(gulp.dest(dest));
-
-  gulp.src(['/utils/baiduMap.js','app.js'],{
-      cwd: 'app/scripts'
-    })
     .pipe(plugins.if(build, plugins.uglify()))
     .pipe(plugins.if(build && !emulate, plugins.rev()))
 
+  .pipe(gulp.dest(dest))
+
   .on('error', errorHandler);
 });
+
+gulp.task('scripts', ['scriptsBefor'], function() {
+  var dest = path.join(targetDir, 'scripts');
+
+  return gulp.src('**/baiduMap.js', {
+      cwd: 'app/scripts'
+    })
+    .pipe(gulp.dest(dest))
+
+  .on('error', errorHandler);
+
+})
 
 // copy fonts
 gulp.task('fonts', function() {
@@ -257,7 +266,7 @@ gulp.task('index', ['jsHint', 'scripts'], function() {
     }), 'vendor'))
     // inject app.js (build) or all js files indivually (dev)
     .pipe(plugins.if(build,
-      _inject(gulp.src('scripts/app*.js', {
+      _inject(gulp.src(['scripts/app*.js','scripts/**/*.js'], {
         cwd: targetDir
       }), 'app'),
       _inject(_getAllScriptSources(), 'app')
