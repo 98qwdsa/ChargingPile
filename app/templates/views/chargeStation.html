@@ -15,7 +15,7 @@
         <ion-item class="item-icon-left item-icon-right">
           <h2>{{ChargingStationsInfo.addr}}</h2>
           <p>距您{{ChargingStationsInfo.distance}}km</p>
-          <i class="icon ion-navigate" ui-sref="app.navigation"></i>
+          <i class="icon ion-navigate" ui-sref="app.navigation({lgt:ChargingStationsInfo.longitude,lat:ChargingStationsInfo.latitude})"></i>
         </ion-item>
         <ion-item class="item-divider"></ion-item>
         <ion-item>

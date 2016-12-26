@@ -201,8 +201,8 @@ ChargingPile.run(function($ionicPlatform) {
   Mock.mock('/getChargingStationsInfo', opt => ({
     "return": [{
       "rid": Mock.mock('@string("number", 5)'),
-      "longitude": Mock.mock('@float(10, 99, 6)'),
-      "latitude": Mock.mock('@float(10, 99, 6)'),
+      "longitude":_.random(113.8, 114.2).toFixed(6),
+      "latitude":_.random(22.5, 22.7).toFixed(6),
       "distance": Mock.mock('@natural(1, 50)'),
       "addr": Mock.mock('@ctitle()'),
       "ownChargingPile": {
@@ -381,7 +381,7 @@ ChargingPile.run(function($ionicPlatform) {
         }
       }
     }).state('app.navigation', {
-      url: '/navigation',
+      url: '/navigation/:lgt/:lat',
       cache: true,
       views: {
         'home': {
