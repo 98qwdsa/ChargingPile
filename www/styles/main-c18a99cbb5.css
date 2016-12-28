@@ -8991,6 +8991,15 @@ a.button {
 
 
 
+.cust-btn {
+  border-radius: 8px; }
+
+.sigin-footer {
+  width: 100%;
+  position: fixed;
+  text-align: center;
+  bottom: 0px; }
+
 .content {
   background: #ccc; }
 
