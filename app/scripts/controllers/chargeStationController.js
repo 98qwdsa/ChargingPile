@@ -12,8 +12,10 @@ angular.module('ChargingPile')
       userid: 13420989008
     }
 
-    API_ENDPOINT.postData.datas = getChargingStationsInfoParam;
+    $scope.chargeStationId = $state.params.id
 
+    API_ENDPOINT.postData.datas = getChargingStationsInfoParam;
+    
     $http.post(API_ENDPOINT.host + API_ENDPOINT.getChargingStationsInfo.url, API_ENDPOINT.postData).then(data => {
       let code = Math.abs(data.data.errorCode);
 

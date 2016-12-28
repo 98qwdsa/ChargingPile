@@ -14,9 +14,9 @@ angular.module('ChargingPile')
 
   // development
   .constant('API_ENDPOINT', {
-    host: 'http://localhost',
+    host: 'http://218.17.142.169:7070',
     postData :{
-      apikey:'',
+      apikey:'appTest#admin',
       datas:{}
     },
 

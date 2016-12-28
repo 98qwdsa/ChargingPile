@@ -19,7 +19,11 @@ angular.module('ChargingPile')
 
     API_ENDPOINT.postData.datas = getChargingStationsListParam;
     $scope.doRefresh = () => {
-      $http.post(API_ENDPOINT.host + API_ENDPOINT.getChargingStationsInfo.url, API_ENDPOINT.postData).then(data => {
+      $http.post(API_ENDPOINT.host + API_ENDPOINT.getChargingStationsInfo.url, API_ENDPOINT.postData, {
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      }
+    }).then(data => {
         let code = Math.abs(data.data.errorCode);
 
         if (0 === code) {

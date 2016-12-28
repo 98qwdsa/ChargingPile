@@ -57,7 +57,7 @@ angular.module('ChargingPile')
         });
         alertPopup.then(res => {
           if (code === 0) {
-            $state.go('app.login');
+            $state.go('app.home');
           }
         });
 

@@ -364,7 +364,10 @@ ChargingPile.run(function($ionicPlatform) {
       }
     }).state('app.chargeStationInfo', {
       url: '/chargeStationInfo/:id',
-      cache: true,
+      cache: false,
+      params:{
+        id:''
+      },
       views: {
         'home': {
           templateUrl: 'templates/views/chargeStation.html',
@@ -373,7 +376,10 @@ ChargingPile.run(function($ionicPlatform) {
       }
     }).state('app.searchChargingPile', {
       url: '/searchChargingPile/:id',
-      cache: true,
+      cache: false,
+      params:{
+        id:''
+      },
       views: {
         'home': {
           templateUrl: 'templates/views/searchChargingPile.html',
@@ -447,5 +453,5 @@ ChargingPile.run(function($ionicPlatform) {
 
 
   // redirects to default route for undefined routes
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('/signin');
 });

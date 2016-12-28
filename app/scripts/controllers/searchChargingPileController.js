@@ -13,6 +13,7 @@ angular.module('ChargingPile')
     const getChargingPileListParam = {
       rid: 13420989008
     }
+    $scope.chargeStationId = $state.params.id
 
     API_ENDPOINT.postData.datas = getChargingPileListParam;
     $scope.doRefresh = () => {
